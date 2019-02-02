@@ -44,7 +44,7 @@ if ( ! function_exists( 'materialize_framework_theme_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'materialize-framework-theme' ),
+			'primary' => esc_html__( 'Primary', 'materialize-framework-theme' ),
 		) );
 
 		/*
@@ -83,6 +83,10 @@ if ( ! function_exists( 'materialize_framework_theme_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'materialize_framework_theme_setup' );
 
+function materialize_add_editor_style() {
+	add_editor_style('dist/css/editor-style.css');
+}
+add_action('admin-init', 'materialize_add_editor_style');
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
